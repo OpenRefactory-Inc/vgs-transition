@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025-present OpenRefactory, Inc.
+#
+# SPDX-License-Identifier: Apache-2.0
+
 from dataclasses import dataclass, field
 from functools import lru_cache
 from pathlib import Path
