@@ -1,18 +1,8 @@
-# ******************************************************************************************************* #
-#                                                                                                         #
-#  OPENREFACTORY CONFIDENTIAL                                                                             #
-#  __________________                                                                                     #
-#                                                                                                         #
-#  Copyright (c) 2025 OpenRefactory, Inc. All Rights Reserved.                                            #
-#                                                                                                         #
-#  NOTICE: All information contained herein is, and remains the property of OpenRefactory, Inc. The       #
-#  intellectual and technical concepts contained herein are proprietary to OpenRefactory, Inc. and        #
-#  may be covered by U.S. and Foreign Patents, patents in process, and are protected by trade secret      #
-#  or copyright law. Dissemination of this information or reproduction of this material is strictly       #
-#  forbidden unless prior written permission is obtained from OpenRefactory, Inc.                         #
-#                                                                                                         #
-#  Author: Saadman Ahmed (OpenRefactory, Inc.) - Initial implementation                                   #
-# ******************************************************************************************************* #
+# SPDX-FileCopyrightText: 2025-present OpenRefactory, Inc.
+# SPDX-FileContributor: Saadman Ahmed (OpenRefactory, Inc.)
+#
+# SPDX-License-Identifier: Apache-2.0
+
 import argparse
 
 from analysis import Analysis

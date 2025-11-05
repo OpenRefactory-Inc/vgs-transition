@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: 2025-present OpenRefactory, Inc.
+
+SPDX-License-Identifier: Apache-2.0
+-->
+
 # VEX Generation Service
 
 VGS, or VEX Generation Service is a part of Project Clean Beach. This service generates a VEX (Vulnerability EXchange format) file based on call graphs and root cause given by RCS.

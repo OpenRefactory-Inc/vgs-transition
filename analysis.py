@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2025-present OpenRefactory, Inc.
+#
+# SPDX-License-Identifier: Apache-2.0
+
 import json
 import shutil
 import subprocess
