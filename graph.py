@@ -247,12 +247,12 @@ class Graph:
 
         return call_chain
 
-    def find_paths(self, sinks: List[int], maxPaths: int = 0) -> List[List[int]]:
+    def find_paths(self, sinks: List[int], max_paths: int = 0) -> List[List[int]]:
         """Find all paths to the sinks recursively
 
         Args:
             sinks: List of function indices
-            maxPaths (optional): Maximum number of paths to return
+            max_paths (optional): Maximum number of paths to return. Default value 0 means no limit.
 
         Returns:
             List of paths
@@ -267,15 +267,16 @@ class Graph:
             if len(callers) == 0:
                 paths.append([sink])
                 self.functions[sink].visited = False
-                if maxPaths > 0 and len(paths) >= maxPaths:
+                if max_paths > 0 and len(paths) >= max_paths:
                     break
                 continue
-            paths_to_callers = self.find_paths(callers, maxPaths)
+            paths_to_callers = self.find_paths(callers, max_paths)
             for path in paths_to_callers:
                 paths.append(path + [sink])
-                if maxPaths > 0 and len(paths) >= maxPaths:
+                if max_paths > 0 and len(paths) >= max_paths:
                     break
-            if maxPaths > 0 and len(paths) >= maxPaths:
+            if max_paths > 0 and len(paths) >= max_paths:
                 break
             self.functions[sink].visited = False
-        return paths[: max(maxPaths, len(paths))]
+        max_paths = max_paths if max_paths > 0 else len(paths)
+        return paths[:max_paths]
