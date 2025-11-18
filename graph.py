@@ -194,7 +194,9 @@ class Graph:
             List of other functions
         """
         return [
-            self.functions[i] for i in range(len(self.functions)) if i not in indices
+            self.functions[i]
+            for i in range(len(self.functions))
+            if i not in indices and self.functions[i].package != ""
         ]
 
     def get_calls(self, indices: List[int]) -> List[Call]:
@@ -245,11 +247,12 @@ class Graph:
 
         return call_chain
 
-    def find_paths(self, sinks: List[int]) -> List[List[int]]:
+    def find_paths(self, sinks: List[int], maxPaths: int = 0) -> List[List[int]]:
         """Find all paths to the sinks recursively
 
         Args:
             sinks: List of function indices
+            maxPaths (optional): Maximum number of paths to return
 
         Returns:
             List of paths
@@ -264,9 +267,15 @@ class Graph:
             if len(callers) == 0:
                 paths.append([sink])
                 self.functions[sink].visited = False
+                if maxPaths > 0 and len(paths) >= maxPaths:
+                    break
                 continue
-            paths_to_callers = self.find_paths(callers)
+            paths_to_callers = self.find_paths(callers, maxPaths)
             for path in paths_to_callers:
                 paths.append(path + [sink])
+                if maxPaths > 0 and len(paths) >= maxPaths:
+                    break
+            if maxPaths > 0 and len(paths) >= maxPaths:
+                break
             self.functions[sink].visited = False
-        return paths
+        return paths[: max(maxPaths, len(paths))]
